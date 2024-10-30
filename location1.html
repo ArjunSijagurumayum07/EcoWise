@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Centered Location with Google Maps</title>
+    <!-- Google Maps API -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <style>
+        /* Style for the map container */
+        #map {
+            height: 500px; /* Adjust the height as needed */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Our Location</h3>
+    <div id="map"></div> <!-- Map container -->
+
+    <script>
+        // Initialize the map and set the center location
+        function initMap() {
+            // Replace with your desired latitude and longitude
+            const centerLocation = { lat: 37.7749, lng: -122.4194 }; // Example: San Francisco
+            
+            // Create the map
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 12,          // Set the zoom level (higher is more zoomed in)
+                center: centerLocation, // Center the map at your location
+            });
+            
+            // Add a marker at the center location
+            new google.maps.Marker({
+                position: centerLocation,
+                map: map,
+                title: "Our Location", // Optional title
+            });
+        }
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Centered Location with Leaflet</title>
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        /* Style for the map container */
+        #map {
+            height: 500px; /* Adjust the height as needed */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h3>Our Location</h3>
+    <div id="map"></div> <!-- Map container -->
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        // Set up the map
+        const map = L.map('map').setView([37.7749, -122.4194], 12); // Example: San Francisco (37.7749, -122.4194)
+        
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        
+        // Add a marker at the center location
+        L.marker([37.7749, -122.4194]).addTo(map)
+            .bindPopup("<b>Our Location</b><br>San Francisco")
+            .openPopup();
+    </script>
+
+</body>
+</html>
