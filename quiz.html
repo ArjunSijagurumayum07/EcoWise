@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EcoWise Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+<body>
+    <header>
+        <h1>Recycling Knowledge Quiz</h1>
+        <p>Challenge your recycling knowledge and become a recycling expert!</p>
+    </header>
+
+    <main class="quiz-container" id="quiz-container">
+        <div class="question-container" id="question-container">
+            <h2 id="question-text">Question text will appear here</h2>
+            <div class="options">
+                <button class="option-button" onclick="selectAnswer(0)">Option 1</button>
+                <button class="option-button" onclick="selectAnswer(1)">Option 2</button>
+                <button class="option-button" onclick="selectAnswer(2)">Option 3</button>
+                <button class="option-button" onclick="selectAnswer(3)">Option 4</button>
+            </div>
+        </div>
+        <button class="next-button" id="next-button" onclick="nextQuestion()">Next Question</button>
+    </main>
+
+    <footer>
+        <button class="back-button" onclick="location.href='index.html'">Back to Home</button>
+    </footer>
+
+    <script src="js/quiz.js"></script>
+</body>
+</html>
